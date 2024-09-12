@@ -35,6 +35,5 @@ int main() {
 	}
 	else
 		printf("기호를 잘못 입력하셨습니다");
-
 	return 0;
 }
