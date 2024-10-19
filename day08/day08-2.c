@@ -70,6 +70,6 @@ void movePointer(void* array) {
 
 		array = (void*)((int*)array + arrpit);
 	}
-	printf("더 이상 이동할 수 없습니다.");
+	printf("더 이상 이동할 수 없습니다.\n");
 	printf("종료 위치 : (%d, %d), 배열의 값 : %d", i, r, arrpit);
 }
