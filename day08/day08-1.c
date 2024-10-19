@@ -21,6 +21,8 @@ int main() {
 		len--;
 	}
 
+	printf("뒤집어진 문자열 : ");
+
 	n = 0;
 	len = strlen(inpsen) - 1;
 	while(len >= 0) {
