@@ -45,12 +45,6 @@ void printArray(int array[SIZE][SIZE]) {
 
 void movePointer(void* array) {
 	
-	//메모리 주소만 가져온다.
-	//배열이 무슨 형태인지 모름.
-	//형 변환
-
-	// *array == *&array[][] == array[][]
-
 	int i = 0;
 	int r = 0;
 	int count = 0;
