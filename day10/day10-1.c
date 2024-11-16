@@ -4,15 +4,15 @@
 #include <string.h>
 
 
-struct NODE {
+struct Customer {
 	char name[100];
-	int data;
-	struct NODE* link;
+	int point;
+	struct Customer* link;
 };
 
-struct NODE* head = NULL;
+struct Customer* head = NULL;
 
-int comp(int num1, int num2) {
+int whatUp(int num1, int num2) {
 	if (num1 < num2) {
 		return 1;
 	}
@@ -21,25 +21,25 @@ int comp(int num1, int num2) {
 	}
 }
 
-struct NODE* create_node(char name[100], int data) {
-	struct NODE* new_node = (struct NODE*)malloc(sizeof(struct NODE));
+struct Customer* create_node(char name[100], int data) {
+	struct Customer* new_node = (struct Customer*)malloc(sizeof(struct Customer));
 	strcpy(new_node->name, name);
-	new_node->data = data;
+	new_node->point = data;
 	new_node->link = NULL;
 	return new_node;
 };
 
-struct NODE* last_node() {
-	struct NODE* cur = head;
+struct Customer* last_node() {
+	struct Customer* cur = head;
 	while (cur->link != NULL) {
 		cur = cur->link;
 	}
 	return cur;
 }
 
-void insert_node(struct NODE* new_node) {
-	struct NODE* last = head;
-	while (last->link != NULL && comp(new_node->data, last->link->data) != 0) {
+void insert_node(struct Customer* new_node) {
+	struct Customer* last = head;
+	while (last->link != NULL && whatUp(new_node->point, last->link->point) != 0) {
 		last = last->link;
 	}
 
@@ -48,19 +48,19 @@ void insert_node(struct NODE* new_node) {
 }
 
 void print_nodes() {
-	struct NODE* cur = head->link;
+	struct Customer* cur = head->link;
 	while (cur != NULL)
 	{
-		printf("%s : %d\n", cur->name, cur->data);
+		printf("%s : %d\n", cur->name, cur->point);
 		cur = cur->link;
 	}
 }
 
-struct NODE* find_node(int value)
+struct Customer* find_node(int value)
 {
-	struct NODE* cur = head->link;
+	struct Customer* cur = head->link;
 	while (cur != NULL) {
-		if (cur->data == value) return cur;
+		if (cur->point == value) return cur;
 
 		cur = cur->link;
 	}
@@ -69,10 +69,10 @@ struct NODE* find_node(int value)
 
 int delete_node(int value)
 {
-	struct NODE* prev = head;
-	struct NODE* cur = head->link;
+	struct Customer* prev = head;
+	struct Customer* cur = head->link;
 	while (cur != NULL) {
-		if (cur->data == value) {
+		if (cur->point == value) {
 			prev->link = cur->link;
 			free(cur);
 			return 1;
@@ -91,7 +91,7 @@ int main() {
 	int delScore;
 
 
-	head = (struct NODE*)malloc(sizeof(struct NODE));
+	head = (struct Customer*)malloc(sizeof(struct Customer));
 	head->link = NULL;
 
 
@@ -120,7 +120,7 @@ int main() {
 		case 2:
 			printf("지우고 싶은 학생의 점수를 입력하세요 : ");
 			scanf_s("%d", &delScore);
-			
+
 
 			if (delete_node(delScore)) {
 				printf("해당 학생의 정보를 삭제했습니다\n");
