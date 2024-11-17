@@ -4,7 +4,7 @@
 #include <string.h>
 
 enum Rank {
-	브론즈 = 1, 실버, 골드, 플래티넘
+	플래티넘 = 1, 골드, 실버, 브론즈
 };
 
 struct Customer {
@@ -52,21 +52,17 @@ void insert_node(struct Customer* new_node) {
 	struct Customer* last = head;
 
 	int count = 0;
-	printf("%x\n", last);
 	while (last->link != NULL && whatUp(new_node->rank, last->link->rank) != 0) {
 		last = last->link;
 		count++;
 	}
-	printf("%x\n", last);
 
 	while (last->link != NULL && whatUp(last->link->orderAmount, new_node->orderAmount) != 0 && whoWhatUp(new_node->rank, last->link->rank) != 0) {
 		last = last->link;
 	}
-	printf("%x\n", last);
 	while (last->link != NULL && whatUp(last->link->point, new_node->point) != 0 && whoWhatUp(last->link->orderAmount, new_node->orderAmount) != 0 && whoWhatUp(new_node->rank, last->link->rank) != 0) {
 		last = last->link;
 	}
-	printf("%x\n", last);
 	new_node->link = last->link;
 	last->link = new_node;
 }
@@ -80,17 +76,6 @@ void print_nodes() {
 		cur = cur->link;
 	}
 	printf("----------------------------------------\n");
-}
-
-struct Customer* find_node(int value)
-{
-	struct Customer* cur = head->link;
-	while (cur != NULL) {
-		if (cur->point == value) return cur;
-
-		cur = cur->link;
-	}
-	return NULL;
 }
 
 int delete_node(int value)
@@ -153,16 +138,16 @@ int main() {
 			rank = inpRank;
 			switch (rank)
 			{
-			case 브론즈:
+			case 플래티넘:
 				rankC = 1;
 				break;
-			case 실버:
+			case 골드:
 				rankC = 2;
 				break;
-			case 골드:
+			case 실버:
 				rankC = 3;
 				break;
-			case 플래티넘:
+			case 브론즈:
 				rankC = 4;
 				break;
 			default:
