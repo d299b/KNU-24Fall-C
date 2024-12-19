@@ -206,7 +206,7 @@ void gameover_print() {	//게임 오버시 최종점수 저장
 		}
 		else if (go_input == 99) {
 			system("cls");
-			main_print();
+			rank_input();
 		}
 	}
 }
@@ -224,7 +224,7 @@ void rank_input(void) {
 	puts("■                                                   ■");
 	puts("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
 	gotoxy(20, 4); printf("이름을 입력해주세요 : ");
-	scanf("%s", player_name);
+	scanf_s("%s", player_name);
 	system("cls");
 	// 메모장 열기
 	FILE* file = fopen("Rank_List.txt", "a");
@@ -239,7 +239,7 @@ void rank_input(void) {
 
 	fclose(file);
 	
-	main_print();
+	return;
 }
 //랭크 보여주는 장면(콘솔)
 void RankingShow(void) {
