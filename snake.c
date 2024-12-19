@@ -206,7 +206,7 @@ void gameover_print() {	//게임 오버시 최종점수 저장
 		}
 		else if (go_input == 99) {
 			system("cls");
-			rank_input();
+			main_print();
 		}
 	}
 }
