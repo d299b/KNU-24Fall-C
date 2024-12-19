@@ -227,7 +227,7 @@ void rank_input(void) {
 	puts("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
 	gotoxy(20, 4); printf("이름을 입력해주세요 : ");
 	scanf_s("%s", player_name);
-	system("cls");
+
 	// 메모장 열기
 	FILE* file = fopen("Rank_List.txt", "a");
 	if (file == NULL) {
