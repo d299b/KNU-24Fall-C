@@ -105,7 +105,6 @@ void quit_game() {
 }
 
 void main_print() {
-	system("cls");
 	CursorView(0);
 	fflush(stdin);
 	puts("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
@@ -207,7 +206,6 @@ void gameover_print() {	//게임 오버시 최종점수 저장
 		if (go_input == 99) {
 			system("cls");
 			rank_input();
-			system("cls");
 			main_print();
 		}
 	}
@@ -240,6 +238,10 @@ void rank_input(void) {
 	fprintf(file, "%d\n", score);
 
 	fclose(file);
+	for (int i = 0; i < 10; i++){
+		printf("                                                                                 ");
+		printf("\n");
+	}
 	
 	return;
 }
