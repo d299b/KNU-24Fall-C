@@ -237,12 +237,7 @@ void rank_input(void) {
 	fprintf(file, "%s\t", player_name);
 	fprintf(file, "%d\n", score);
 
-	fclose(file);
-	for (int i = 0; i < 10; i++){
-		printf("                                                                                 ");
-		printf("\n");
-	}
-	
+	system("cls");
 	return;
 }
 //랭크 보여주는 장면(콘솔)
